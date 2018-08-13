@@ -2,3 +2,5 @@
 node_modules
 # ignore index.js test file
 index.js
+# ignore config/credentials.js
+config/credentials.js
