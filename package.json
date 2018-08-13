@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/reactive-senior/node-veesp#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "bluebird": "^3.5.1",
     "js-base64": "^2.4.8"
   }
