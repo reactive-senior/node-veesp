@@ -6,6 +6,7 @@ const Promise = require("bluebird");
 const Base64 = require("js-base64").Base64;
 
 const Account = require(__dirname + "/lib/account");
+const VPS = require(__dirname + "/lib/vps");
 
 class Veesp {
   constructor(
@@ -15,6 +16,7 @@ class Veesp {
       "Basic " + Base64.encode(userInfo.email + ":" + userInfo.password);
     axiosInstance.defaults.headers.common["Authorization"] = this.token;
     this.account = new Account(this);
+    this.vps = new VPS(this);
   }
   communicate(method, data, type) {
     data = data || {};
