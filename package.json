@@ -1,0 +1,33 @@
+{
+  "name": "node-veesp",
+  "version": "1.0.0",
+  "description": "Node.js based veesp API wrapper",
+  "main": "veesp.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactive-senior/node-veesp.git"
+  },
+  "keywords": [
+    "node",
+    "RESTful",
+    "API",
+    "veesp"
+  ],
+  "author": "reactive-senior",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reactive-senior/node-veesp/issues"
+  },
+  "homepage": "https://github.com/reactive-senior/node-veesp#readme",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "js-base64": "^2.4.8"
+  }
+}
