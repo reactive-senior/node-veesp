@@ -12,10 +12,13 @@ const Service = require(__dirname + "/lib/service");
 
 class Veesp {
   constructor(
-    userInfo = { email: credentials.email, password: credentials.password }
+    userInfo = {
+      username: credentials.username,
+      password: credentials.password
+    }
   ) {
     this.token =
-      "Basic " + Base64.encode(userInfo.email + ":" + userInfo.password);
+      "Basic " + Base64.encode(userInfo.username + ":" + userInfo.password);
     axiosInstance.defaults.headers.common["Authorization"] = this.token;
 
     this.account = new Account(this);
