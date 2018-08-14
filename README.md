@@ -18,7 +18,7 @@ const veespInstance = new Veesp({
 });
 ```
 
-The constructor uses credentials from config/credentials.js default and you may don't need to write your credentials to the constructor.
+The constructor uses credentials from config/credentials.js by default and you may don't need to write your credentials to the constructor.
 
 ## veesp.Account
 
