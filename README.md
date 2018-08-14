@@ -4,23 +4,35 @@ Node.js Promise-based library to communicate with the Veesp API
 
 ## Enable the Veesp API
 
-Open config/credentials.js and change email and password to your real one to enable Veesp API wrapper.
+Open config/credentials.js and change username and password to your real one to enable Veesp API wrapper.
 
 ## Veesp
 
-### constructor({email: "login", password: "password"})
+### constructor({username: "login", password: "password"})
 
 ```js
 const Veesp = require("Veesp");
 const veespInstance = new Veesp({
-  email: "YourEmailAddressHere",
+  username: "YourEmailAddressHere",
   password: "YourPasswordHere"
 });
 ```
 
 The constructor uses credentials from config/credentials.js by default and you may don't need to write your credentials to the constructor.
 
-## veesp.Account
+## veesp.service
+
+### veespInstance.service.getServices()
+
+Get services that you are currently using or was using
+
+```js
+veespInstance.service.getServices().then(response => {
+  // Returns Object with services info
+});
+```
+
+## veesp.account
 
 ### veespInstance.account.details()
 
@@ -42,7 +54,7 @@ veespInstance.account.balance().then(response => {
 });
 ```
 
-## veesp.Vps
+## veesp.vps
 
 ### veespInstance.vps.list(id)
 
