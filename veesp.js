@@ -7,6 +7,8 @@ const Base64 = require("js-base64").Base64;
 
 const Account = require(__dirname + "/lib/account");
 const VPS = require(__dirname + "/lib/vps");
+const Payment = require(__dirname + "/lib/payment");
+const Service = require(__dirname + "/lib/service");
 
 class Veesp {
   constructor(
@@ -15,31 +17,19 @@ class Veesp {
     this.token =
       "Basic " + Base64.encode(userInfo.email + ":" + userInfo.password);
     axiosInstance.defaults.headers.common["Authorization"] = this.token;
+
     this.account = new Account(this);
     this.vps = new VPS(this);
+    this.payment = new Payment(this);
+    this.service = new Service(this);
   }
-  communicate(method, data, type) {
+  communicate(type, endPoint, data) {
     data = data || {};
-    const options = {
-      url: method,
-      method: "GET",
-      json: true
-    };
-    // Check if it's method is POST
-    if (Object.keys(data).length > 0) {
-      options.method = "POST";
-      options.form = data;
-    }
-    // In case we have data but still need to GET
-    if (type !== void 0 && type !== "") {
-      if (options.method === "POST" && type.toUpperCase() === "GET") {
-        console.log("~~~");
-      }
-      options.method = type.toUpperCase();
-    }
     return Promise.delay(1000).then(function() {
-      if (options.method === "GET") {
-        return axiosInstance.get(options.url);
+      if (type === "GET") {
+        return axiosInstance.get(endPoint);
+      } else if (type === "POST") {
+        return axiosInstance.post(endPoint, data);
       }
     });
   }
