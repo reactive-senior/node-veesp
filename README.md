@@ -115,3 +115,18 @@ veespInstance.vps.create(options).then(response => {
   // VMID of your new VM
 });
 ```
+
+### veespInstance.vps.destroy(id, vmid)
+
+- function description
+  destroy the vm indicated in the parameter, however for now it only destroys vm inside the service so if you check with veespInstance.service.getServices you will still see the service is active, but if you check with veespInstance.vps.list(id) you will see there is no vm inside that service.
+  The developing team is finding better way to cope with this~!
+- parameter description
+  id is number of service and can get veesp.Service class
+  vmid is number of service and can get veesp.Vps class: product related functions
+
+```js
+veespInstance.vps.destroy(id, vmid).then(response => {
+  // destroy VM of `vmid` under service of `id`
+});
+```
