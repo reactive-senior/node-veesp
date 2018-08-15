@@ -33,6 +33,8 @@ class Veesp {
         return axiosInstance.get(endPoint);
       } else if (type === "POST") {
         return axiosInstance.post(endPoint, data);
+      } else if (type === "DELETE") {
+        return axiosInstance.delete(endPoint);
       }
     });
   }
