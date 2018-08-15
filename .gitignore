@@ -4,3 +4,5 @@ node_modules
 index.js
 # ignore config/credentials.js
 config/credentials.js
+# ignore .vscode config files
+.vscode
